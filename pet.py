@@ -39,3 +39,6 @@ class BankAccount:
 
 Bob =BankAccount("Bob", 10000)
 Bob.show_balance()
+
+class Pet:
+    def __init__(self, name, happyness):
