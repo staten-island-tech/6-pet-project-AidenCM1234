@@ -42,3 +42,12 @@ Bob.show_balance()
 
 class Pet:
     def __init__(self, name, happyness):
+        self.name = name
+        self.happyness = happyness
+
+    def play(self,game):
+        self.happyness += game
+        print (f"{self.name} is playing {game}")
+    
+    def check(self,name):
+        print(self.name)
