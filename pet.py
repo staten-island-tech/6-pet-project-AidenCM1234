@@ -41,55 +41,42 @@ Bob =BankAccount("Bob", 10000)
 Bob.show_balance()"""
 
 class Pet:
-    def __init__(self, name, happyness, life):
-        self.name = name
-        self.happyness = happyness
-        self.life= life
+   def __init__(self, name, happyness, life):
+       self.name = name
+       self.happyness = happyness
+       self.life= life
 
-    def play(self,game):
-        self.happyness += game
-        print (f"{self.name} is playing {game}")
-        print(f"{self.name}'s happyness is now {self.happyness}")
-    
-    def discard(self):
-        self.life = False
-        print(f"{self.name}'s happyness was {self.happyness}")
+   def play(self,value, game):
+       self.happyness += value
+       print (f"{self.name} is playing {game} ")
+       print(f"{self.name}'s happyness is now {self.happyness}")
+  
+   def discard(self):
+       self.life = False
+       print(f"{self.name}'s happyness was {self.happyness} \n"
+             f"{self.name}'s dead now")
 
-    def check(self):
-        print(f"{self.name}'s happyness is currently {self.happyness}")
-
+   def check(self):
+       print(f"{self.name}'s happyness is currently {self.happyness}")
 
 x= input("What would you like to name your pet? ")
 x =Pet(f"{x}", 0, True)
 x.check()
-#while self.life == True:
 
-life=True
-
-while life:
-    isthing = False
-    while not isitem:
-        choice = input("Please choose one item to purchase: ")
-        
-        for item in store:
-            if choice == item["name"]: 
-                print(f"You have purchased one {item['name']} for ${item['price']}")
-                cart.append(f"{item['name']} - ${item['price']}")
-                total+=item['price']
-                isitem = True
-        
-        if not isitem:  
-            print("Try again")
-    a=False
-    while not a:
-        again = input("Would you like to purchase more items? (Y/N): ")
-        if again == 'N':
-            done = True
-            a=True 
-        elif again == 'Y':
-            a=True
-        elif again != 'N' or 'Y':
-            print("Try again")
-
-
-    
+while x.life:
+   isitem = False
+   while not isitem:
+       choice = input("\nWhat would you like to do?\n"
+       "0: Play Fetch \n"
+       "1: Check Stats \n"
+       "2: Discard Pet \n").strip().lower()
+      
+       if choice in ["0", "play fetch", "fetch", "play", "0: Play Fetch"]:
+           x.play(10, "Fetch")
+       elif choice in ["1", "check stats", "check", "stats","1: Check Stats"]:
+           x.check()
+       elif choice in ["2", "discard", "discard pet", "discard of pet","2: Discard Pet"]:
+           x.discard()
+           break
+       else:
+           print("Try again")
