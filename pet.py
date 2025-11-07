@@ -46,6 +46,7 @@ class Pet:
        self.happyness = happyness
        self.life= life
 
+<<<<<<< HEAD
    def play(self,value, game):
        self.happyness += value
        print (f"{self.name} is playing {game} ")
@@ -55,6 +56,20 @@ class Pet:
        self.life = False
        print(f"{self.name}'s happyness was {self.happyness} \n"
              f"{self.name}'s dead now")
+=======
+    def play(self,value, game):
+        self.happyness += value
+        print (f"{self.name} is playing {game} ")
+        print(f"{self.name}'s happyness is now {self.happyness}")
+    
+    def discard(self):
+        self.life = False
+        print(f"{self.name}'s happyness was {self.happyness} \n"
+              "He dead now")
+
+    def check(self):
+        print(f"{self.name}'s happyness is currently {self.happyness}")
+>>>>>>> 196ff4b9e31bceaf1e7c7beacfd3e5f8ebd49387
 
    def check(self):
        print(f"{self.name}'s happyness is currently {self.happyness}")
@@ -64,6 +79,7 @@ x =Pet(f"{x}", 0, True)
 x.check()
 
 while x.life:
+<<<<<<< HEAD
    isitem = False
    while not isitem:
        choice = input("\nWhat would you like to do?\n"
@@ -80,3 +96,20 @@ while x.life:
            break
        else:
            print("Try again")
+=======
+    isitem = False
+    while not isitem:
+        choice = input("\nWhat would you like to do?\n"
+        "0: Play Fetch \n"
+        "1: Check Stats \n"
+        "2: Discard Pet").strip().lower()
+        
+        if choice in ["0", "play fetch", "fetch", "play", "0: Play Fetch"]:
+            x.play(10, "Fetch")
+        elif choice in ["1", "check stats", "check", "stats","1: Check Stats"]:
+            x.check()
+        elif choice in ["2", "discard", "discard pet", "discard of pet","2: Discard Pet"]:
+            x.discard()
+        else:
+            print("Try again")
+>>>>>>> 196ff4b9e31bceaf1e7c7beacfd3e5f8ebd49387
