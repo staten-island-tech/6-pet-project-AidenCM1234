@@ -19,7 +19,6 @@ class Pet:
             print(f"{self.name} died from depersion")
        elif self.allergy == True:
             print(f"{self.name} died from allergy")
-  
 
    def play(self,value, game):
        self.happyness += value
@@ -97,3 +96,4 @@ while x.life:
                 x.discard()
                 break
            inplay =False
+
