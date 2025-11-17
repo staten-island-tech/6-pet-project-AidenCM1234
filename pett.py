@@ -1,11 +1,13 @@
-
+#Ways to kill: 1.Discard 2.Starve 3.Obestity 4.Depersion 5.Allery 6.Ignore 7.Cafine
 class Pet:
-   def __init__(self, name, happyness, life, hunger, allergy):
+   def __init__(self, name, happyness, life, hunger, allergy,ignoring,cafine):
        self.name = name
        self.happyness = happyness
        self.life= life
        self.hunger= hunger
        self.allergy = allergy
+       self.ignoring= ignoring
+       self.cafine= cafine
   
    def discard(self):
        self.life = False
@@ -19,6 +21,10 @@ class Pet:
             print(f"{self.name} died from depersion")
        elif self.allergy == True:
             print(f"{self.name} died from allergy")
+       elif self.ignoring >=3:
+            print(f"{self.name} died from ignorace")
+       elif self.cafine== True:
+           print(f"{self.name} died from cafine")
 
    def play(self,value, game):
        self.happyness += value
@@ -40,7 +46,7 @@ alleric=["apple","chocolate", "samsung tv", "pollen", "cats", "food", "The Doubl
 
 import random
 x= input("What would you like to name your pet? ")
-x =Pet(f"{x}", 0, True, 10, False)
+x =Pet(f"{x}", 0, True, 10, False,0,False)
 x.check()
 inplay =False
 while x.life:
@@ -50,7 +56,8 @@ while x.life:
        "0: Play \n"
        "1: Check Stats \n"
        "2: Discard Pet \n"
-       "3: Feed \n").lower()
+       "3: Feed \n"
+       "4: Ignore\n").lower()
 
        if choice in ["0", "play", "0: Play"]:
            inplay =True
@@ -62,14 +69,24 @@ while x.life:
            inplay =False
        elif choice in ["1", "check stats", "check", "stats","1: Check Stats"]:
            x.check()
+       elif choice in ["4","ignore", "4: Ignore"]:
+           x.ignoring+= 1
+           x.hunger =+ 2
+           x.happyness =- 2
+           if x.ignoring >=3:
+               x.discard()
+               break
        elif choice in ["3", "feed","3: Feed"]:
            z = input("What Food? ")
-           if z == "The Double Ristretto Venti Half-Soy Nonfat Decaf Organic Chocolate Brownie Iced Vanilla Double-Shot Gingerbread Frappuccino":
-               x.feed (999999,z)
+           if z.lower()== "Cafine" or z.lower() == "The Double Ristretto Venti Half-Soy Nonfat Decaf Organic Chocolate Brownie Iced Vanilla Double-Shot Gingerbread Frappuccino":
+               x.cafine=True
+               x.discard ()
+               break
            for i in alleric:
               if z.lower == i: 
                    allery = True
                    x.discard
+                   break
            x.feed(7, z)
            if x.hunger < -5:
                 x.discard()
