@@ -1,4 +1,4 @@
-#Ways to kill: 1.Discard 2.Starve 3.Obestity 4.Depersion 5.Allery 6.Ignore 7.Cafine
+#Ways to kill: 1.Discard 2.Starve 3.Obestity 4.Depersion --5.Allery 6.Ignore 7.Cafine
 class Pet:
    def __init__(self, name, happyness, life, hunger, allergy,ignoring,cafine):
        self.name = name
@@ -22,7 +22,7 @@ class Pet:
        elif self.allergy == True:
             print(f"{self.name} died from allergy")
        elif self.ignoring >=3:
-            print(f"{self.name} died from ignorace")
+            print(f"{self.name} died from rejeshion")
        elif self.cafine== True:
            print(f"{self.name} died from cafine")
 
@@ -42,7 +42,7 @@ class Pet:
        print(f"{self.name}'s happyness is currently {self.happyness}")
        print(f"{self.name}'s hunger is currently {self.hunger}")
 
-alleric=["apple","chocolate", "samsung tv", "pollen", "cats", "food", "The Double Ristretto Venti Half-Soy Nonfat Decaf Organic Chocolate Brownie Iced Vanilla Double-Shot Gingerbread Frappuccino"]
+alleric=["apple","chocolate", "samsung tv", "pollen", "cats", "food",]
 
 import random
 x= input("What would you like to name your pet? ")
@@ -78,9 +78,9 @@ while x.life:
                break
        elif choice in ["3", "feed","3: Feed"]:
            z = input("What Food? ")
-           if z.lower()== "Cafine" or z.lower() == "The Double Ristretto Venti Half-Soy Nonfat Decaf Organic Chocolate Brownie Iced Vanilla Double-Shot Gingerbread Frappuccino":
+           if z.lower()== "Cafine" or z.lower() == "the double ristretto venti half-soy nonfat decaf organic chocolate brownie iced vanilla double-shot gingerbread frappuccino":
                x.cafine=True
-               x.discard ()
+               x.discard () 
                break
            for i in alleric:
               if z.lower == i: 
