@@ -77,13 +77,16 @@ while x.life:
                x.discard()
                break
        elif choice in ["3", "feed","3: Feed"]:
+           for i in alleric:
+              print(i)
            z = input("What Food? ")
-           if z.lower()== "Cafine" or z.lower() == "the double ristretto venti half-soy nonfat decaf organic chocolate brownie iced vanilla double-shot gingerbread frappuccino":
+           if z.lower()== "cafine" or z.lower() == "the double ristretto venti half-soy nonfat decaf organic chocolate brownie iced vanilla double-shot gingerbread frappuccino":
                x.cafine=True
                x.discard () 
                break
            for i in alleric:
-              if z.lower == i: 
+            if i == z: 
+                   print("eeeee")
                    allery = True
                    x.discard
                    break
