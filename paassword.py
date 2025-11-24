@@ -56,8 +56,8 @@
 password("eee@ee","11")"""
 
 def create_user(e,p):
-    #e=e.strip()
-    #p=p.strip()
+    e=e.strip()
+    p=p.strip()
 
     if not isinstance(e,str) or not isinstance(p,str):
         print("error:email +password be strings")
@@ -72,8 +72,8 @@ def create_user(e,p):
         print("error password>=1 number")
         return
     if not any(ch.isupper() for ch in p):
-        #print("error:password >=1 upper lettter")
+        print("error:password >=1 upper lettter")
         return"Error:password >=1 upper lettter"
     print(e,p)
     
-create_user("@","1eeeeeeeee")
+create_user("@","1Ee                          e")
