@@ -1,26 +1,26 @@
-#Ways to kill: 1.Discard 2.Starve 3.Obestity 4.Depersion --5.Allery 6.Ignore 7.Cafine
+#Ways to kill: 1.Discard 2.Starve 3.Obestity 4.Depersion 6.Ignore 7.Cafine
 class Pet:
-   def __init__(self, name, happyness, life, hunger, allergy,ignoring,cafine):
+   def __init__(self, name, happyness, life, hunger, ignoring,cafine,turns):
        self.name = name
        self.happyness = happyness
        self.life= life
        self.hunger= hunger
-       self.allergy = allergy
        self.ignoring= ignoring
        self.cafine= cafine
+       self.turns=turns
   
    def discard(self):
        self.life = False
        print(f"\n{self.name}'s dead now \n"
-             f"{self.name}'s happyness was {self.happyness}")
+             f"{self.name}'s happyness was {self.happyness}\n"
+             f"You killed your pet in {self.turns} Turns")
+
        if self.hunger >20:
            print(f"{self.name}'s starved")
        elif self.hunger <= -5:
            print(f"{self.name} died from obeisty")
        elif self.happyness < -5:
             print(f"{self.name} died from depersion")
-       elif self.allergy == True:
-            print(f"{self.name} died from allergy")
        elif self.ignoring >=3:
             print(f"{self.name} died from rejeshion")
        elif self.cafine== True:
@@ -42,22 +42,41 @@ class Pet:
        print(f"{self.name}'s happyness is currently {self.happyness}")
        print(f"{self.name}'s hunger is currently {self.hunger}")
 
-alleric=["apple","chocolate", "samsung tv", "pollen", "cats", "food",]
 
 import random
 x= input("What would you like to name your pet? ")
-x =Pet(f"{x}", 0, True, 10, False,0,False)
+x =Pet(f"{x}", 0, True, 10,0,False,0)
 x.check()
 inplay =False
-while x.life:
+h=False
+d=False
+print("Your Goal: Keep your pet alive OR it dies in the most intersting ways\n" \
+"Your pets Happyness and Hunger will randomly change so keep on checking")
+while x.life and d==False:
    isitem = False
-   while not isitem:
+   while not isitem and not d:
        choice = input("\nWhat would you like to do?\n"
        "0: Play \n"
        "1: Check Stats \n"
        "2: Discard Pet \n"
        "3: Feed \n"
        "4: Ignore\n").lower()
+       if choice not in ["1", "check stats", "check", "stats","1: Check Stats"]:
+        x.turns+=1
+       while h == False and x.turns>=10:
+        if x.turns>=1:
+           print ("You won HE surived >=10 turns")
+           c =input("would you like to couintue: Yes or No ")
+           if c.lower() =="no" or c.lower() =="n":
+               print("You said NO")
+               d=True
+               break
+           elif c.lower() == "yes" or c.lower()=="y":
+               print("You said YES")
+               print("To end just discard pet")
+               h =True
+           else:
+               print("try again")
 
        if choice in ["0", "play", "0: Play"]:
            inplay =True
@@ -77,19 +96,11 @@ while x.life:
                x.discard()
                break
        elif choice in ["3", "feed","3: Feed"]:
-           for i in alleric:
-              print(i)
            z = input("What Food? ")
            if z.lower()== "cafine" or z.lower() == "the double ristretto venti half-soy nonfat decaf organic chocolate brownie iced vanilla double-shot gingerbread frappuccino":
                x.cafine=True
                x.discard () 
                break
-           for i in alleric:
-            if i == z: 
-                   print("eeeee")
-                   allery = True
-                   x.discard
-                   break
            x.feed(7, z)
            if x.hunger < -5:
                 x.discard()
@@ -104,14 +115,14 @@ while x.life:
         
        if r <= 2 and x.life and not inplay:
            x.hunger =+ r
-           print(f"\n{x.name} randomly got hunger increased by {r}")
+           #print(f"\n{x.name} randomly got hunger increased by {r}")
            if x.hunger < 0:
                 x.discard()
                 break
        if a <= 2 and x.life and not inplay:
            inplay =True
            x.happyness =- a
-           print(f"\n{x.name} randomly got happyness decreased by {a}")
+           #print(f"\n{x.name} randomly got happyness decreased by {a}")
            if x.happyness <= -5:
                 x.discard()
                 break
