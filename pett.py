@@ -31,7 +31,7 @@ class Pet:
        self.hunger += value
        print (f"{self.name} is playing {game} \n"
             f"{self.name}'s happyness is now {self.happyness}\n"
-            f"{self.name}'s hunger is now {self.hunger}")
+            f"{self.name}'s hunger is now {self.hunger}\n")
        
    def feed(self,value, food):
        self.hunger -= value
@@ -41,7 +41,22 @@ class Pet:
    def check(self):
        print(f"{self.name}'s happyness is currently {self.happyness}")
        print(f"{self.name}'s hunger is currently {self.hunger}")
+       print(f"Turn: {self.turns}")
 
+   def take_turn(self,turns):
+       turns +=1
+
+   def four(self, ignoring, hunger, happyness):
+        self.ignoring+= 1
+        self.hunger += 2
+        self.happyness -= 2
+
+   def hungerr(self,value):
+       self.hunger +=value
+       #print(f"\n{self.name} randomly got hunger increased by {value}")
+   def hungera(self,value):
+       self.hunger +=value
+       #print(f"\n{self.name} randomly got hunger increased by {value}")
 
 import random
 x= input("What would you like to name your pet? ")
@@ -52,7 +67,7 @@ h=False
 d=False
 print("Your Goal: Keep your pet alive For 10+ Turns OR it dies in the most intersting ways\n" \
 "Your pets Happyness and Hunger will randomly change so keep on checking\n" \
-"Choose -(2: Discard Pet)- to quit")
+"Choose (2: Discard Pet) to quit")
 while x.life and d==False:
    isitem = False
    while not isitem and not d:
@@ -64,7 +79,7 @@ while x.life and d==False:
        "4: Ignore\n").lower()
        choice =choice.strip()
        if choice not in ["1", "check stats", "check", "stats","1: Check Stats"]:
-        x.turns+=1
+        x.take_turn
        if choice in ["0", "play", "0: Play"]:
            inplay =True
            y = input("What Game? ")
@@ -76,9 +91,7 @@ while x.life and d==False:
        elif choice in ["1", "check stats", "check", "stats","1: Check Stats"]:
            x.check()
        elif choice in ["4","ignore", "4: Ignore"]:
-           x.ignoring+= 1
-           x.hunger =+ 2
-           x.happyness =- 2
+           x.four(x.ignoring,x.hunger, x.happyness)
            if x.ignoring >=3:
                x.discard()
                break
@@ -99,6 +112,7 @@ while x.life and d==False:
            print("Try again")
        while h == False and x.turns>=10:
         if x.turns>=10:
+           x.winner()
            print ("You won HE surived >=10 turns")
            c =input("would you like to couintue: Yes or No ")
            if c.lower() =="no" or c.lower() =="n":
@@ -116,14 +130,13 @@ while x.life and d==False:
        a = random.randint(1, 10)
         
        if r <= 2 and x.life and not inplay:
-           x.hunger =+ r
-           #print(f"\n{x.name} randomly got hunger increased by {r}")
+           x.hungerr(r)
            if x.hunger < 0:
                 x.discard()
                 break
        if a <= 2 and x.life and not inplay:
            inplay =True
-           x.happyness =- a
+           x.happynessa() =- a
            #print(f"\n{x.name} randomly got happyness decreased by {a}")
            if x.happyness <= -5:
                 x.discard()
