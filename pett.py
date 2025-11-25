@@ -1,4 +1,4 @@
-#Ways to kill: 1.Discard 2.Starve 3.Obestity 4.Depersion 6.Ignore 7.Cafine
+#Ways to kill: 1.Discard 2.Starve 3.Obestity 4.Depersion 5.Ignore 6.Cafine
 class Pet:
    def __init__(self, name, happyness, life, hunger, ignoring,cafine,turns):
        self.name = name
@@ -50,8 +50,9 @@ x.check()
 inplay =False
 h=False
 d=False
-print("Your Goal: Keep your pet alive OR it dies in the most intersting ways\n" \
-"Your pets Happyness and Hunger will randomly change so keep on checking")
+print("Your Goal: Keep your pet alive For 10+ Turns OR it dies in the most intersting ways\n" \
+"Your pets Happyness and Hunger will randomly change so keep on checking\n" \
+"Choose -(2: Discard Pet)- to quit")
 while x.life and d==False:
    isitem = False
    while not isitem and not d:
@@ -61,23 +62,9 @@ while x.life and d==False:
        "2: Discard Pet \n"
        "3: Feed \n"
        "4: Ignore\n").lower()
+       choice =choice.strip()
        if choice not in ["1", "check stats", "check", "stats","1: Check Stats"]:
         x.turns+=1
-       while h == False and x.turns>=10:
-        if x.turns>=1:
-           print ("You won HE surived >=10 turns")
-           c =input("would you like to couintue: Yes or No ")
-           if c.lower() =="no" or c.lower() =="n":
-               print("You said NO")
-               d=True
-               break
-           elif c.lower() == "yes" or c.lower()=="y":
-               print("You said YES")
-               print("To end just discard pet")
-               h =True
-           else:
-               print("try again")
-
        if choice in ["0", "play", "0: Play"]:
            inplay =True
            y = input("What Game? ")
@@ -110,6 +97,21 @@ while x.life and d==False:
            break
        else:
            print("Try again")
+       while h == False and x.turns>=10:
+        if x.turns>=10:
+           print ("You won HE surived >=10 turns")
+           c =input("would you like to couintue: Yes or No ")
+           if c.lower() =="no" or c.lower() =="n":
+               print("You said NO")
+               d=True
+               break
+           elif c.lower() == "yes" or c.lower()=="y":
+               print("You said YES")
+               print("To end just discard pet")
+               h =True
+           else:
+               print("try again")
+
        r = random.randint(1, 10)
        a = random.randint(1, 10)
         
@@ -127,4 +129,3 @@ while x.life and d==False:
                 x.discard()
                 break
            inplay =False
-
