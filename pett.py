@@ -53,11 +53,12 @@ class Pet:
 
    def hungerr(self,value):
        self.hunger +=value
-       print(f"\n{self.name} randomly got hunger increased by {value}\n"
-             f"New Value {self.hunger}")
+      # print(f"\n{self.name} randomly got hunger increased by {value}\n"
+            # f"New Value {self.hunger}")
    def happya(self,value):
        self.happyness +=value
-        #print(f"\n{self.name} randomly got happyness decreased by {value}")
+       #print(f"\n{self.name} randomly got happyness decreased by {value}\n"
+            # f"New Value {self.happyness}")
 import random
 x= input("What would you like to name your pet? ")
 x =Pet(f"{x}", 0, True, 10,0,False,0)
@@ -79,7 +80,7 @@ while x.life and d==False:
        "4: Ignore\n").lower()
        choice =choice.strip()
        if choice not in ["1", "check stats", "check", "stats","1: Check Stats"]:
-        x.take_turn
+        x.take_turn(1)
        if choice in ["0", "play", "0: Play"]:
            inplay =True
            y = input("What Game? ")
@@ -129,7 +130,7 @@ while x.life and d==False:
        r = random.randint(1, 10)
        a = random.randint(1, 10)
         
-       if r <= 10 and x.life and not inplay:
+       if r <= 2 and x.life and not inplay:
            x.hungerr(r)
            if x.hunger < -5:
                 x.discard()
