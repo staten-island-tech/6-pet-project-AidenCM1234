@@ -53,11 +53,11 @@ class Pet:
 
    def hungerr(self,value):
        self.hunger +=value
-       #print(f"\n{self.name} randomly got hunger increased by {value}")
-   def hungera(self,value):
-       self.hunger +=value
-       #print(f"\n{self.name} randomly got hunger increased by {value}")
-
+       print(f"\n{self.name} randomly got hunger increased by {value}\n"
+             f"New Value {self.hunger}")
+   def happya(self,value):
+       self.happyness +=value
+        #print(f"\n{self.name} randomly got happyness decreased by {value}")
 import random
 x= input("What would you like to name your pet? ")
 x =Pet(f"{x}", 0, True, 10,0,False,0)
@@ -129,15 +129,13 @@ while x.life and d==False:
        r = random.randint(1, 10)
        a = random.randint(1, 10)
         
-       if r <= 2 and x.life and not inplay:
+       if r <= 10 and x.life and not inplay:
            x.hungerr(r)
-           if x.hunger < 0:
+           if x.hunger < -5:
                 x.discard()
                 break
        if a <= 2 and x.life and not inplay:
-           inplay =True
-           x.happynessa() =- a
-           #print(f"\n{x.name} randomly got happyness decreased by {a}")
+           x.happya(a)
            if x.happyness <= -5:
                 x.discard()
                 break
