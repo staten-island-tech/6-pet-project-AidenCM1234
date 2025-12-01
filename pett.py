@@ -43,8 +43,8 @@ class Pet:
        print(f"{self.name}'s hunger is currently {self.hunger}")
        print(f"Turn: {self.turns}")
 
-   def take_turn(self,turns):
-       turns +=1
+   def take_turn(self,value):
+       self.turns += value
 
    def four(self, ignoring, hunger, happyness):
         self.ignoring+= 1
