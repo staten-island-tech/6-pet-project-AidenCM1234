@@ -59,6 +59,7 @@ class Pet:
        self.happyness +=value
        #print(f"\n{self.name} randomly got happyness decreased by {value}\n"
             # f"New Value {self.happyness}")
+   def winner():
 import random
 x= input("What would you like to name your pet? ")
 x =Pet(f"{x}", 0, True, 10,0,False,0)
@@ -111,8 +112,8 @@ while x.life and d==False:
            break
        else:
            print("Try again")
-       while h == False and x.turns>=10:
-        if x.turns>=10:
+       while h == False and x.turns>=1:
+        if x.turns>=1:
            x.winner()
            print ("You won HE surived >=10 turns")
            c =input("would you like to couintue: Yes or No ")
