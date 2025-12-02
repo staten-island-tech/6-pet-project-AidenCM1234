@@ -1,6 +1,6 @@
 #Ways to kill: 1.Discard 2.Starve 3.Obestity 4.Depersion 5.Ignore 6.Cafine
 class Pet:
-   def __init__(self, name, happyness, life, hunger, ignoring,cafine,turns):
+   def __init__(self, name, happyness, life, hunger, ignoring,cafine,turns,wiener):
        self.name = name
        self.happyness = happyness
        self.life= life
@@ -8,6 +8,7 @@ class Pet:
        self.ignoring= ignoring
        self.cafine= cafine
        self.turns=turns
+       self.wiener=wiener
   
    def discard(self):
        self.life = False
@@ -42,6 +43,8 @@ class Pet:
        print(f"{self.name}'s happyness is currently {self.happyness}")
        print(f"{self.name}'s hunger is currently {self.hunger}")
        print(f"Turn: {self.turns}")
+       if self.wiener == True:
+           print(f"You a winnner")
 
    def take_turn(self,value):
        self.turns += value
@@ -59,10 +62,12 @@ class Pet:
        self.happyness +=value
        #print(f"\n{self.name} randomly got happyness decreased by {value}\n"
             # f"New Value {self.happyness}")
-   def winner():
+   def winner(self):
+       self.wiener==True
+       print ("You won HE surived >=10 turns")
 import random
 x= input("What would you like to name your pet? ")
-x =Pet(f"{x}", 0, True, 10,0,False,0)
+x =Pet(f"{x}", 0, True, 10,0,False,False,False)
 x.check()
 inplay =False
 h=False
@@ -112,10 +117,9 @@ while x.life and d==False:
            break
        else:
            print("Try again")
-       while h == False and x.turns>=1:
-        if x.turns>=1:
+       while h == False and x.turns>=10:
+        if x.turns>=10:
            x.winner()
-           print ("You won HE surived >=10 turns")
            c =input("would you like to couintue: Yes or No ")
            if c.lower() =="no" or c.lower() =="n":
                print("You said NO")
